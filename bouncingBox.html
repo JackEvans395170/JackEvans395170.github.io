@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    #box {
+      width: 30px;
+      height: 30px;
+      background-color: red;
+      position: absolute;
+      top: 100px;
+      left: 100px
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="box">
+
+  </div>
+</body>
+
+</html>
+<script>
+  var positionx = 100
+  var positiony = 100
+  var speedx = 5
+  var speedy = -5
+  function moveBox() {
+    //change direction of box if box is = to broder screen
+    document.getElementById("box").style.left = positionx + "px"
+    positionx = positionx + speedx
+    document.getElementById("box").style.top = positiony + "px"
+    positiony = positiony + speedy
+    if (positionx >= 1350) {
+      speedx = -5
+    }
+    if (positionx <= 0) {
+      speedx = 5
+    }
+    if (positiony <= -10) {
+      speedy = 5
+    }
+    if (positiony >= 600) {
+      speedy = -5
+    }
+  }
+  document.getElementById("box").addEventListener("click", moveBox)
+  setInterval(moveBox, 16)
+</script>
